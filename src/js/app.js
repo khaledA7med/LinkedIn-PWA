@@ -1,33 +1,30 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const sidebar = document.getElementById("sidebar");
+  const navbar = document.getElementById("navbar");
   const content = document.getElementById("content");
 
-  // Function to toggle the sidebar
-  function toggleSidebar() {
-    sidebar.classList.toggle("hidden");
-    content.classList.toggle("full");
-  }
-
-  // Attach event listener to the toggler button
-  function attachToggler() {
-    const toggleButton = document.getElementById("toggle-sidebar");
-    if (toggleButton) {
-      toggleButton.addEventListener("click", toggleSidebar);
+  // Function to toggle the navbar/sidebar
+  function toggleNavbar() {
+    // Toggle only for small screens
+    if (window.innerWidth <= 768) {
+      navbar.classList.toggle("hidden");
     }
   }
 
-  // Initial attachment
-  attachToggler();
+  // Attach event listener to the toggler button
+  const toggleButton = document.getElementById("toggle-navbar");
+  if (toggleButton) {
+    toggleButton.addEventListener("click", toggleNavbar);
+  }
 
-  // Dynamically load content when sidebar links are clicked
-  document.querySelectorAll("#sidebar nav a").forEach((link) => {
+  // Dynamically load content when navbar links are clicked
+  document.querySelectorAll("#navbar nav a").forEach((link) => {
     link.addEventListener("click", (e) => {
       e.preventDefault();
       const section = e.target.getAttribute("href").substring(1);
 
       // Update content dynamically
       content.innerHTML = `
-                <button id="toggle-sidebar">☰</button>
+                <button id="toggle-navbar">☰</button>
                 <section id="${section}">
                     <h2>${
                       section.charAt(0).toUpperCase() + section.slice(1)
@@ -37,7 +34,10 @@ document.addEventListener("DOMContentLoaded", () => {
             `;
 
       // Reattach the toggler after updating the DOM
-      attachToggler();
+      const newToggleButton = document.getElementById("toggle-navbar");
+      if (newToggleButton) {
+        newToggleButton.addEventListener("click", toggleNavbar);
+      }
     });
   });
 });

@@ -8,27 +8,47 @@
     <title>LinkedIn PWA</title>
     <link rel="stylesheet" href="/src/css/style.css">
     <link rel="manifest" href="/manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-satus-bar-style" content="#00b7fa">
+    <meta name="apple-mobile-web-app-title" content="LinkedIn">
+
+    <link rel="apple-touch-icon" href="/src/images/ios/57.png" sizes="57x57">
+    <link rel="apple-touch-icon" href="/src/images/ios/60.png" sizes="60x60">
+    <link rel="apple-touch-icon" href="/src/images/ios/72.png" sizes="72x72">
+    <link rel="apple-touch-icon" href="/src/images/ios/114.png" sizes="114x114">
+    <link rel="apple-touch-icon" href="/src/images/ios/120.png" sizes="120x120">
+    <link rel="apple-touch-icon" href="/src/images/ios/144.png" sizes="144x144">
+    <link rel="apple-touch-icon" href="/src/images/ios/152.png" sizes="152x152">
+    <link rel="apple-touch-icon" href="/src/images/ios/180.png" sizes="180x180">
+
+    <meta name="msapplication-titleImage" content="/src/images/ios/180.png">
+    <meta name="msapplication-titleColor" content="#fff">
 </head>
 
 <body>
-    <!-- Sidebar -->
-    <div id="sidebar" class="hidden">
+    <!-- Navbar/Sidebar -->
+    <div id="navbar">
         <h2>LinkedIn</h2>
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
+                <li><a href="#profile">Profile</a></li>
+                <li><a href="#jobs">Jobs</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </div>
 
+
     <!-- Content -->
     <div id="content">
-        <button id="toggle-sidebar">☰</button>
+        <button id="toggle-navbar">☰</button>
         <section id="home">
             <h2>Welcome to LinkedIn PWA</h2>
             <p>Connect with professionals around the world!</p>
         </section>
     </div>
+
     <script src="/src/js/app.js"></script>
 </body>
 
